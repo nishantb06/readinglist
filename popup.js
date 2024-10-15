@@ -48,21 +48,27 @@ document.addEventListener('DOMContentLoaded', function() {
             card.innerHTML = `
                 <div class="card-content">
                     <div class="article-title">${article.title}</div>
-                    <div class="article-url">${article.url}</div>
                 </div>
                 <footer class="card-footer">
                     <a href="#" class="card-footer-item button is-light ${article.read ? 'is-success' : ''}">${article.read ? 'Unread' : 'Read'}</a>
+                    <a href="#" class="card-footer-item button is-light is-info">Open</a>
                     <a href="#" class="card-footer-item button is-light is-danger">Remove</a>
                 </footer>
             `;
 
-            const readUnreadBtn = card.querySelector('.card-footer-item:first-child');
+            const readUnreadBtn = card.querySelector('.card-footer-item:nth-child(1)');
             readUnreadBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 toggleReadStatus(index);
             });
 
-            const removeBtn = card.querySelector('.card-footer-item:last-child');
+            const openBtn = card.querySelector('.card-footer-item:nth-child(2)');
+            openBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openArticle(article.url);
+            });
+
+            const removeBtn = card.querySelector('.card-footer-item:nth-child(3)');
             removeBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 removeArticle(index);
@@ -80,6 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 renderReadingList(list);
             });
         });
+    }
+
+    function openArticle(url) {
+        chrome.tabs.create({ url: url });
     }
 
     function removeArticle(index) {
