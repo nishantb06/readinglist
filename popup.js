@@ -1,12 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     const articleUrl = document.getElementById('articleUrl');
     const addArticleBtn = document.getElementById('addArticle');
+    const addCurrentSiteBtn = document.getElementById('addCurrentSite');
     const readingList = document.getElementById('readingList');
 
     // Load existing reading list
     chrome.storage.sync.get(['readingList'], function(result) {
         const list = result.readingList || [];
         renderReadingList(list);
+    });
+
+    // Add current site
+    addCurrentSiteBtn.addEventListener('click', function() {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            const currentTab = tabs[0];
+            addArticle(currentTab.url, currentTab.title);
+        });
     });
 
     // Add new article
@@ -34,29 +43,32 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderReadingList(list) {
         readingList.innerHTML = '';
         list.forEach((article, index) => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <div>
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="card-content">
                     <div class="article-title">${article.title}</div>
                     <div class="article-url">${article.url}</div>
                 </div>
-                <div class="article-actions">
-                    <button class="${article.read ? 'unread' : 'read'}">${article.read ? 'Unread' : 'Read'}</button>
-                    <button class="remove">Remove</button>
-                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item button is-light ${article.read ? 'is-success' : ''}">${article.read ? 'Unread' : 'Read'}</a>
+                    <a href="#" class="card-footer-item button is-light is-danger">Remove</a>
+                </footer>
             `;
 
-            const readUnreadBtn = li.querySelector('.read, .unread');
-            readUnreadBtn.addEventListener('click', function() {
+            const readUnreadBtn = card.querySelector('.card-footer-item:first-child');
+            readUnreadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 toggleReadStatus(index);
             });
 
-            const removeBtn = li.querySelector('.remove');
-            removeBtn.addEventListener('click', function() {
+            const removeBtn = card.querySelector('.card-footer-item:last-child');
+            removeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 removeArticle(index);
             });
 
-            readingList.appendChild(li);
+            readingList.appendChild(card);
         });
     }
 

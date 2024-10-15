@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Active Reading List",
+  "name": "Reading Stack",
   "version": "1.0",
   "description": "Manage your active reading list with ease.",
   "permissions": ["storage", "activeTab"],

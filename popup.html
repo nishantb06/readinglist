@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Active Reading List</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <title>Reading Stack</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Active Reading List</h1>
-        <div class="add-article">
-            <input type="text" id="articleUrl" placeholder="Enter article URL">
-            <button id="addArticle" class="button is-info is-dark">Add</button>
+    <div class="container p-3">
+        <h1 class="title is-4 mb-3">Reading Stack</h1>
+        <button id="addCurrentSite" class="button is-info is-fullwidth mb-3">Add Current Site</button>
+        <div class="field has-addons mb-4">
+            <div class="control is-expanded">
+                <input class="input" type="text" id="articleUrl" placeholder="Enter article URL">
+            </div>
+            <div class="control">
+                <button id="addArticle" class="button is-info">Add</button>
+            </div>
         </div>
-        <ul id="readingList"></ul>
+        <div id="readingList" class="reading-list"></div>
     </div>
     <script src="popup.js"></script>
 </body>
