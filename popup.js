@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             card.className = 'card';
             card.innerHTML = `
                 <div class="card-content">
-                    <div class="article-title">${article.title}</div>
+                    <div class="article-title is-subtitle is-size-10">${article.title}</div>
                 </div>
                 <footer class="card-footer">
                     <a href="#" class="card-footer-item button is-light ${article.read ? 'is-success' : ''}">${article.read ? 'Unread' : 'Read'}</a>

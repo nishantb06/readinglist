@@ -13,7 +13,7 @@ body {
 }
 
 .reading-list .article-title {
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
