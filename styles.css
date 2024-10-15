@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    margin: 0;
+    padding: 15px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.add-article {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.article-url {
+    font-size: 12px;
+    color: #666;
+    word-break: break-all;
+}
+
+.article-actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.read {
+    background-color: #ddd;
+    color: #333;
+}
+
+.unread {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.remove {
+    background-color: #f44336;
+    color: white;
+}

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Active Reading List",
+  "version": "1.0",
+  "description": "Manage your active reading list with ease.",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icons8-bookmark-ios-17-filled/icons8-bookmark-50.png",
+      "48": "images/icons8-bookmark-ios-17-filled/icons8-bookmark-50.png",
+      "128": "images/icons8-bookmark-ios-17-filled/icons8-bookmark-50.png"
+    }
+  },
+  "icons": {
+    "16": "images/icons8-bookmark-ios-17-filled/icons8-bookmark-50.png",
+    "48": "images/icons8-bookmark-ios-17-filled/icons8-bookmark-50.png",
+    "128": "images/icons8-bookmark-ios-17-filled/icons8-bookmark-50.png"
+  }
+}
