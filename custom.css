@@ -34,3 +34,26 @@ body {
 .button:hover {
     opacity: 0.8;
 }
+/* Animation for new items */
+@keyframes slideInFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        background-color: #ebfffc; /* Light teal flash */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        background-color: white;
+    }
+}
+
+.new-item-animate {
+    animation: slideInFade 0.5s ease-out forwards;
+    border: 1px solid #00d1b2 !important; /* Temporarily highlight the border */
+}
+
+/* Optional: Smooth transition for the rest of the list */
+#readingList {
+    transition: all 0.3s ease;
+}

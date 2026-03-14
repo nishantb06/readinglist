@@ -3,7 +3,14 @@
   "name": "Reading Stack",
   "version": "1.0",
   "description": "Manage your active reading list with ease.",
-  "permissions": ["storage", "activeTab"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.notion.com/*"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -16,5 +23,6 @@
     "16": "images/icons8-bookmark-50.png",
     "48": "images/icons8-bookmark-50.png",
     "128": "images/icons8-bookmark-50.png"
-  }
+  },
+  "options_page": "options.html"
 }
