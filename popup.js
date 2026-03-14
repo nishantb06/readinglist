@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // If keys exist, proceed with saving
             chrome.storage.sync.get(['readingList'], function(result) {
                 let list = result.readingList || [];
-                list.unshift({url, title, read: false, animate: true});
+                // mark this item as new so renderReadingList can animate it
+                list.unshift({url, title, read: false, isNew: true});
     
                 if (list.length > MAX_K) {
                     list = list.slice(0, MAX_K);
